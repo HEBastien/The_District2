@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<!-- Catégorie -->
+<div class='row no-gutters m-5 justify-content-center'>  
+   {% for libelle in libelle %}
+    <div class='col-md-3 m-2 bg-light'>
+        <div class='row no-gutters'>
+            <div class='col-md-6'>
+               <img src="{{ asset('image/category/')}}{{ libelle.image }}" alt="" class='w-100'> 
+            </div>
+            <div class='col-md-6 text-center mt-5'>
+                <p class="display-6">{{ libelle.libelle }}</p>
+                <a class="btn btn-dark" href="categoriespe.php?id=<?=$cat->id ?>" role="button">Voir la catégorie</a>
+            </div>
+        </div>
+    </div> 
+    {% endfor %}
+</div>
+<!-- plats -->
+<div class='row no-gutters m-3 justify-content-center'>  
+    {% for plat in plat %}
+    <div class='col-md-3 mx-2 bg-light'>
+        <div class='row no-gutters'>
+            <div class='col-md-5'>
+               <img src="{{ asset('image/food/')}}{{ plat.image}}" alt="" class='w-100'> 
+            </div>
+            <div class='col-md-7 text-center mt-5'>
+                <p>{{ plat.libelle }}</p>
+                <a class="btn btn-dark" href="commande.php?id=<?=$plat->id ?>" role="button">Commander</a>
+            </div>
+        </div>
+    </div> 
+     {% endfor %}
+</div>
+{% endblock %}
